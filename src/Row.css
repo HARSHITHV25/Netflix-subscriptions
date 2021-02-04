@@ -1,0 +1,54 @@
+.row {
+  margin-left: 20px;
+}
+
+.row > h2 {
+  color: whitesmoke;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.row__posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 20px;
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.tilt__posters {
+  display: flex;
+  width: 100%;
+  padding: 5px;
+}
+
+.row__poster {
+  cursor: pointer;
+  object-fit: cover;
+  width: 180px;
+  min-height: 100px;
+  border-radius: 5px;
+  margin-right: 20px !important;
+  transition: transform 800ms;
+}
+
+.row__poster.tilt__posters.row__netflix {
+  width: 130px;
+  max-height: 230px !important;
+}
+
+.row__poster.tilt__posters.row__netflix:hover {
+  transform: scale(1.09);
+  opacity: 0.4;
+}
+
+.row__poster.row__netflix:hover ~ .tilt__posters {
+  box-shadow: 1px 3px 3px rgba(255, 255, 255, 0.8);
+}
+
+.row__poster.tilt__posters:hover {
+  box-shadow: 10px 10px 3px #fff;
+}

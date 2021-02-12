@@ -1,0 +1,65 @@
+.profile {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+}
+
+.profile > h2 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.profile__username,
+.profile__password {
+  padding: 10px;
+  padding-bottom: 0px !important;
+  color: white !important;
+}
+
+.profile__password > label,
+.profile__username > label {
+  margin: 12px 0;
+  color: #ebeeee;
+  display: inline-block;
+  float: left;
+  width: 26%;
+}
+
+.profile__username > input,
+.profile__password > input {
+  padding: 10px 20px;
+  color: #eee;
+  background: #373233;
+  border: 0;
+  outline: none;
+  font-size: 15px;
+  line-height: 24px;
+  width: 85%;
+}
+
+.profile__username > input:focus,
+.profile__password > input:focus {
+  color: #fff;
+  background-color: #11abb0;
+}
+
+.profile__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16.8%;
+  margin-top: 25px;
+}
+.profile__submit button {
+  width: 100%;
+}

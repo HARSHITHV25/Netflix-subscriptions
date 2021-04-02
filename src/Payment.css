@@ -1,0 +1,301 @@
+/* * {
+    box-sizing: border-box;
+  }
+  
+  input,
+  button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    border-style: none;
+  }
+  
+  html {
+    background-color: #6772e5;
+    font-size: 16px;
+    font-family: Roboto, Open Sans, Segoe UI, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-rendering: optimizeLegibility;
+    height: 100%;
+  }
+  
+  body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #root {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .AppWrapper {
+    width: 500px;
+    height: 400px;
+    position: relative;
+  }
+   */
+
+.processing {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+}
+
+button:disabled {
+  cursor: not-allowed !important;
+}
+
+.payment {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+
+.payment__container {
+  font-size: 16px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0px;
+  font-family: Roboto, Open Sans, Segoe UI, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  width: 80%;
+  height: 80%;
+  text-rendering: optimizeLegibility;
+  background-image: linear-gradient(to bottom, #6772e5, #8a93f3);
+  border-radius: 10px;
+}
+
+.payment__content {
+  text-align: center;
+}
+
+.payment__image {
+  max-height: 160px;
+  max-width: 108px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 12px 15px rgba(50, 50, 93, 0.06), 0 20px 25px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 #829fff;
+}
+
+.payment__description {
+  color: lightcyan;
+  font-weight: lighter;
+}
+
+.payment__plan {
+  color: lightskyblue;
+  font-weight: lighter;
+}
+
+.payment button,
+.payment input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  border-style: none;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale3D(0.95, 0.95, 0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale3D(1, 1, 1);
+  }
+}
+
+.Form {
+  width: 80%;
+  animation: fade 400ms ease-out;
+}
+
+@media screen and (max-width: 600px) {
+  .Form {
+    width: 100%;
+    animation: fade 400ms ease-out;
+  }
+}
+
+.FormGroup {
+  margin: 15px;
+  padding: 0;
+  border-style: none;
+  background-color: #7795f8;
+  will-change: opacity, transform;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #829fff;
+  border-radius: 4px;
+}
+
+.FormRow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 15px;
+  border-top: 1px solid #819efc;
+}
+
+.FormRow:first-child {
+  border-top: none;
+}
+
+.FormRowLabel {
+  width: 15%;
+  min-width: 70px;
+  padding: 11px 0;
+  color: #c4f0ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes void-animation-out {
+  0%,
+  to {
+    opacity: 1;
+  }
+}
+.FormRowInput:-webkit-autofill {
+  -webkit-text-fill-color: white;
+  transition: background-color 100000000s;
+  animation: 1ms void-animation-out;
+}
+
+.FormRowInput {
+  font-size: 16px;
+  width: 100%;
+  padding: 11px 15px 11px 0;
+  color: #fff;
+  background-color: transparent;
+  animation: 1ms void-animation-out;
+}
+
+.FormRowInput::placeholder {
+  color: #87bbfd;
+}
+
+.StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.StripeElement {
+  font-weight: lighter !important;
+  width: 100%;
+  padding: 11px 15px 11px 0;
+}
+
+.SubmitButton {
+  display: block;
+  font-size: 17px;
+  width: calc(100% - 30px);
+  height: 40px;
+  margin: 10px 15px 0;
+  background-color: #e28ddc;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #ffb9f6;
+  border-radius: 4px;
+  color: white;
+  font-weight: lighter !important;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  will-change: transform, background-color, box-shadow;
+}
+
+.SubmitButton:active {
+  background-color: #d782d9;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #e298d8;
+  transform: scale(0.98);
+}
+
+.SubmitButton.SubmitButton--error {
+  transform: translateY(15px);
+}
+.SubmitButton.SubmitButton--error:active {
+  transform: scale(0.99) translateY(15px);
+}
+
+.SubmitButton:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background-color: #7795f8;
+  box-shadow: none;
+}
+
+.ErrorMessage {
+  display: flex;
+  justify-content: center !important;
+  font-size: 13px;
+  color: lightgreen;
+  width: 100%;
+  opacity: 0;
+  align-items: center;
+  animation: fade 150ms ease-out;
+  animation-delay: 50ms;
+  animation-fill-mode: forwards;
+  will-change: opacity, transform;
+}
+
+.ErrorMessage svg {
+  color: lightgreen;
+  margin-right: 10px;
+}
+
+.Result {
+  margin-top: 50px;
+  text-align: center;
+  animation: fade 200ms ease-out;
+}
+
+.Result img {
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.ResultTitle {
+  color: #fff;
+  font-weight: lighter;
+  margin-bottom: 8px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.ResultMessage {
+  color: #9cdbff;
+  font-size: 17px;
+  font-weight: lighter;
+  margin-bottom: 25px;
+  line-height: 1.6em;
+  text-align: center;
+}
+
+.ResetButton {
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+}

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+.plans{
+    color: whitesmoke;
+    max-width: 400px;
+    background: rgb(27, 36, 63);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 10px rgba(27, 36, 63, 0.8);
+    font-family: 'Syne Mono', monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.plans__card{
+    cursor: pointer;
+    transition: .1s all ease-in-out;
+}
+
+.plans__card:hover{
+    transform: scale(1.05);
+    transition: .1s all ease-in-out;
+}
+
+.plans__plan{
+    font-size: 1.6rem;
+    font-weight: 100;
+    padding-bottom: 3px;
+}
+
+.plans__price{
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1rem;
+    padding-bottom: 3px;
+}
+
+.plans__description{
+    font-size: small;
+}

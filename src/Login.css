@@ -39,7 +39,7 @@
 
 .login__content {
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%);
   z-index: 1;
@@ -54,4 +54,103 @@
 
 .login__content h2 {
   font-weight: 300;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  padding-bottom: 40px;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.8);
+}
+
+.login__email,
+.login__password,
+.login__username {
+  padding: 0px 10px 10px 10px;
+  padding-top: 0px !important;
+  color: white !important;
+}
+
+input:disabled{
+  cursor: not-allowed;
+}
+
+.login__password > label,
+.login__email > label,
+.login__username > label{
+  margin: 12px 0;
+  color: #ebeeee;
+  display: inline-block;
+  float: left;
+  max-width: 25%;
+}
+
+.login__email > input,
+.login__password > input,
+.login__username > input{
+  padding: 10px 20px;
+  color: #eee;
+  background: #373233;
+  border: 0;
+  outline: none;
+  font-size: 15px;
+  line-height: 24px;
+  min-width: 85% !important;
+}
+
+.login__email > input:focus,
+.login__password > input:focus
+.login__username > input:focus {
+  color: #fff;
+  background-color: #11abb0;
+}
+
+.profile__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16.8%;
+  margin-top: 25px;
+}
+.profile__submit button {
+  width: 100%;
+}
+
+.login__formWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__form > h1 {
+  text-align: center;
+  animation: background-fade 10s forwards;
+}
+
+.login__form > p {
+  font-size: 0.9rem;
+  color: gray;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.login__submit {
+  padding: 5px;
+}
+
+.MuiButton-outlined.Mui-disabled {
+  background: unset !important;
+}
+
+@keyframes background-fade {
+  40% {
+    color: #e1fee0;
+  }
+  100% {
+    color: rgba(255, 0, 0, 0.842);
+  }
 }

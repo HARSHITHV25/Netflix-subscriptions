@@ -3,17 +3,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 1;
+  transition: 0.5s ease-in;
 }
 
-.profile > h2 {
+.profile__user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.profile__plans {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+.profile__plans::-webkit-scrollbar {
+  display: none;
+}
+
+.profile__user > h2 {
   color: white;
   font-size: 2.5rem;
   font-weight: 300;
@@ -62,4 +78,36 @@
 }
 .profile__submit button {
   width: 100%;
+  background-image: linear-gradient(to right, #e40813, #ed5159);
+}
+
+.profile__image {
+  height: 150px !important;
+  width: 150px !important;
+  object-fit: cover;
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.8) 0,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.8) 100%
+  ) !important;
+  margin-bottom: 10px;
+}
+
+.profile__plans {
+  color: white;
+}
+
+@media screen and (max-width: 750px) {
+  .profile {
+    flex-direction: column;
+  }
+  .profile__user {
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+  .profile__image {
+    height: 100px !important;
+    width: 100px !important;
+  }
 }

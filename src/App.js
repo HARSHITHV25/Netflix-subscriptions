@@ -1,37 +1,26 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import "./App.css";
-import Row from "./Row";
-import requests from "./requests";
-import Banner from "./Banner";
-import NavBar from "./NavBar";
 import { motion } from "framer-motion";
 import Login from "./Login";
 import { useStateValue } from "./StateProvider";
-import Profile from "./Profile";
+import { auth } from "./firebase";
+import Home from "./Home";
 
 function App() {
-  const [{ location }, dispatch] = useStateValue();
+  const [{ location, user }, dispatch] = useStateValue();
+  useLayoutEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        dispatch({ type: "SET_USER", user: user });
+        dispatch({ type: "SET_LOCATION", location: "Home" });
+      } else {
+        dispatch({ type: "SET_LOCATION", location: "Login" });
+      }
+    });
+  }, [user]);
   return (
     <motion.div className="app" layout>
-      {location === "Login" ? (
-        <Login />
-      ) : (
-        <>
-          <Profile />
-          <NavBar />
-          <Banner />
-          <Row
-            title="Netflix Originals"
-            isLargeRow
-            fetchUrl={requests.fetchNetflixOriginals}
-          />
-          <Row title="Animated" fetchUrl={requests.fetchAnimated} />
-          <Row title="Actions Movies" fetchUrl={requests.fetchActionMovies} />
-          <Row title="Horror Movies" fetchUrl={requests.fetchHorrorMovies} />
-          <Row title="Comedy Movies" fetchUrl={requests.fetchComedyMovies} />
-          <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
-        </>
-      )}
+      {location === "Login" ? <Login /> : <Home />}
     </motion.div>
   );
 }

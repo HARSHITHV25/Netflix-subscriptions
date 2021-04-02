@@ -20,6 +20,27 @@ function NavBar() {
     });
   }, []);
 
+  const handleClick = () => {
+    console.log("dispatching.....");
+    dispatch({
+      type: "SET_PLAN",
+      plan: null,
+    });
+    dispatch({
+      type: "SET_PRICE",
+      price: null,
+    });
+    dispatch({
+      type: "SET_DESCRIPTION",
+      description: null,
+    });
+    dispatch({
+      type: "SET_IMAGE",
+      image: null,
+    });
+    dispatch({ type: "SET_LOCATION", location: "Profile" });
+  };
+
   return (
     <>
       <motion.div className={`nav ${show && "scrolled"}`} layout>
@@ -28,16 +49,7 @@ function NavBar() {
           alt="Netflix"
           className="nav__logo"
         />
-        {location !== "Profile" ? (
-          <img
-            src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png"
-            className="nav__avatar"
-            alt=""
-            onClick={(e) =>
-              dispatch({ type: "SET_LOCATION", location: "Profile" })
-            }
-          />
-        ) : (
+        {location === "Profile" ? (
           <IconButton className="nav__avatar">
             <CloseRoundedIcon
               className="nav__avatar"
@@ -46,6 +58,24 @@ function NavBar() {
               }
             />
           </IconButton>
+        ) : location === "Payment" ? (
+          <>
+            <IconButton className="nav__avatar">
+              <CloseRoundedIcon
+                className="nav__avatar"
+                onClick={(e) => {
+                  window.location.reload(false);
+                }}
+              />
+            </IconButton>
+          </>
+        ) : (
+          <img
+            src={`./user-image-red.png` || `./user-image-green.jpg`}
+            className="nav__avatar"
+            alt=""
+            onClick={handleClick}
+          />
         )}
       </motion.div>
     </>
